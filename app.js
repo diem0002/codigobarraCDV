@@ -1,7 +1,7 @@
 // ===== CONFIGURACION DEL LECTOR =====
 // Modifica esta URL para que apunte al 'productos.json' de tu carta-web.
 // Ejemplo: "https://diem0002.github.io/carta-web/data/productos.json"
-var URL_CATALOGO = "https://diem0002.github.io/tachyon-corona/carta-web/data/productos.json"; 
+var URL_CATALOGO = "https://diem0002.github.io/Carta-online-compania-de-vinos/data/productos.json"; 
 // ====================================
 
 var estadoApp = {
