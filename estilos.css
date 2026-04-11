@@ -1,0 +1,112 @@
+/* Compatibilidad extrema con navegadores antiguos (Android 4) */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden; /* No queremos scroll */
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+
+/* El input oculto. Usamos opacity 0 y posición absoluta para que no moleste visualmente pero reciba foco */
+#barcode-input {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* Pantallas configuradas usando display:table para asegurar centrado vertical en navegadores muy viejos */
+.pantalla {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.pantalla.activa {
+    display: table;
+}
+
+.contenido-centrado {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* --- Pantalla Inicial (Espera) --- */
+#pantalla-espera h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #e0e0e0;
+}
+#estado-datos {
+    font-size: 20px;
+    color: #888888;
+    margin-top: 20px;
+}
+.icono-escaner {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+.icono-escaner:after {
+    content: "📱"; /* Icono genérico soportado por fuentes antiguas */
+}
+
+/* --- Pantallas de Resultado / Error --- */
+.bg-exito {
+    background-color: #1a3622;
+}
+.bg-error {
+    background-color: #4a1c1c;
+}
+
+#producto-nombre {
+    font-size: 50px; /* Tamaños fijos grandes, Android 4 puede no soportar bien vh/vw */
+    margin: 0 auto;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+#producto-bodega {
+    font-size: 30px;
+    color: #a0d4b0;
+    margin-top: 15px;
+}
+
+#producto-precio {
+    font-size: 100px;
+    font-weight: bold;
+    color: #81c784;
+    margin-top: 40px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
+    display: inline-block;
+    padding: 10px 40px;
+    border-radius: 20px;
+}
+
+#pantalla-error h2 {
+    font-size: 50px;
+    color: #ef5350;
+    margin-bottom: 20px;
+}
+#pantalla-error p {
+    font-size: 30px;
+    color: #ffcdd2;
+}

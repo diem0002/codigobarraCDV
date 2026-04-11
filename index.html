@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Meta tags para pantalla completa como App (PWA básica) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Consultador de Precios</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Input oculto para recibir tipeo del lector -->
+        <input type="text" id="barcode-input" autocomplete="off" />
+
+        <!-- 1. Pantalla Inicial -->
+        <div id="pantalla-espera" class="pantalla activa">
+            <div class="contenido-centrado">
+                <div class="icono-escaner"></div>
+                <h1>Pase el lector por el c&oacute;digo</h1>
+                <p id="estado-datos">Cargando base de datos...</p>
+            </div>
+        </div>
+
+        <!-- 2. Pantalla de Producto (Resultado Exitoso) -->
+        <div id="pantalla-resultado" class="pantalla">
+            <div class="contenido-centrado bg-exito">
+                <h2 id="producto-nombre">Cargando...</h2>
+                <div id="producto-bodega">Cargando...</div>
+                <div id="producto-precio">$0</div>
+            </div>
+        </div>
+
+        <!-- 3. Pantalla de Error -->
+        <div id="pantalla-error" class="pantalla">
+            <div class="contenido-centrado bg-error">
+                <h2>C&oacute;digo no encontrado</h2>
+                <p>Intente nuevamente o consulte al vendedor</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
