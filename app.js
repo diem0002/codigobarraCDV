@@ -36,6 +36,19 @@ function formatPrecio(p) {
     return 'Consultar';
 }
 
+function calcularPrecioSinIva(p) {
+    var num = parseFloat(p);
+    if (!isNaN(num) && num > 0) {
+        var sinIva = num / 1.21;
+        // Redondear a 2 decimales y cambiar punto por coma (seguro para ES5 / Android 4)
+        var formateado = sinIva.toFixed(2).replace('.', ',');
+        // Agregar separador de miles si lo hubiera
+        formateado = formateado.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return '(Precio neto sin IVA: $' + formateado + ')';
+    }
+    return '';
+}
+
 function enfocarInput() {
     var inp = document.getElementById('barcode-input');
     if (inp) {
@@ -108,6 +121,7 @@ function procesarLectura(codigo) {
         document.getElementById('producto-nombre').innerText = producto.vino || 'Sin Nombre';
         document.getElementById('producto-bodega').innerText = producto.bodega || 'Otras';
         document.getElementById('producto-precio').innerText = formatPrecio(producto.precio);
+        document.getElementById('producto-precio-sin-iva').innerText = calcularPrecioSinIva(producto.precio);
         mostrarPantalla('pantalla-resultado');
     } else {
         // Fallo
